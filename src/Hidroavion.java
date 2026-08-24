@@ -1,6 +1,6 @@
 public class Hidroavion extends Vehiculos implements Navegable, Volador {
-    boolean puedeAterrizarEnAgua;
-    int numeroMotores;
+    private boolean puedeAterrizarEnAgua;
+    private int numeroMotores;
 
     public Hidroavion(String marca, String modelo, int velocidadMaxima, boolean puedeAterrizarEnAgua, int numeroMotores){
         super(marca, modelo, velocidadMaxima);
@@ -18,7 +18,7 @@ public class Hidroavion extends Vehiculos implements Navegable, Volador {
 
     @Override
     public void navegar() {
-        System.out.println(" Puede navegar. ");
+        System.out.println(" El Hidrio Avión navega. ");
     }
 
     @Override

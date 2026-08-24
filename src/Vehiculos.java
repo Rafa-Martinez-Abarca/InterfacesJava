@@ -1,7 +1,7 @@
 public abstract class Vehiculos{
-    String marca;
-    String modelo;
-    int velocidadMaxima;
+    private String marca;
+    private String modelo;
+    private int velocidadMaxima;
     
     public Vehiculos(String marca, String modelo, int velocidadMaxima){
         this.marca = marca;
@@ -26,7 +26,7 @@ public abstract class Vehiculos{
     
     @Override
     public String toString(){
-        return "Marca: " + marca + " Modelo; " + modelo + " Velocidad: ";
+        return "Marca: " + marca + " Modelo; " + modelo + " Velocidad: " + velocidadMaxima;
     }
 
 }

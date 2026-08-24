@@ -1,5 +1,5 @@
 public class Avion extends Vehiculos implements Volador {
- int numeroMotores;
+ private int numeroMotores;
  
  public Avion(String marca, String modelo, int velocidadMaxima, int numeroMotores){
     super(marca, modelo, velocidadMaxima);

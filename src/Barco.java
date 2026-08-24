@@ -1,5 +1,5 @@
 public class Barco extends Vehiculos implements Navegable{
-    int numeroCamarotes;
+    private int numeroCamarotes;
 
     public Barco(String marca, String modelo, int velocidadMaxima, int numeroCamarotes){
         super(marca, modelo, velocidadMaxima);

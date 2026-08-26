@@ -4,8 +4,19 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) {
+    
 
+    
+    public static void main(String[] args) {
+        
+
+
+
+        
+
+    
+
+    ///////////////////////////////////////////////////////////////////////
         Motor motor = new Motor("Gasolina", 150);
         Motor motor1 = new Motor("Diesel", 90);
         Coche coche1 = new Coche("Seat", "Ibiza", motor);
@@ -57,7 +68,7 @@ public class Main {
         //Obtener el valor asociado a una clave
         //System.out.println(listaDecoches.get(99));
         //borrar una entrada con la clave
-        listaDecoches.remove(3);
+        //listaDecoches.remove(3);
         //System.out.println(listaDecoches.get(3));
         //Cantida de entradas
         //System.out.println(listaDecoches.size());
@@ -93,13 +104,13 @@ public class Main {
             vehiculos.add(new Hidroavion("Ces", "A1", 500, true, 2));
       
       
-      
-     
-       System.out.println((obtenerClaveCocheConMasCaballos(listaDecoches)));
-       
-         
     }
 
+    
+    
+    
+    
+/////////////////////////////////////////////////////////////////////////////////////
                 
                                //HASHMAP
      public static Coche cocheConMasCaballos1(HashMap<Integer, Coche> listaDecoches){
@@ -147,6 +158,89 @@ public class Main {
     }
 
 
+    public static Coche obtenerCocheConMenosCaballos(HashMap<Integer, Coche> listaDeCoches){
+        Coche cocheConMenosCaballos = null;
+
+        for (Coche coche : listaDeCoches.values()) {
+            if (cocheConMenosCaballos == null || cocheConMenosCaballos.getMotor().getCaballos() > coche.getMotor().getCaballos()) {
+                cocheConMenosCaballos = coche;
+            }
+        } return cocheConMenosCaballos;
+    }
+
+    public static Integer obtenerCocheConMenosCaballosPorClave(HashMap<Integer, Coche> listaDeCoches){
+        Integer cocheConMenosCaballos = null;
+        Coche cocheCandidato =  null;
+        for (Map.Entry<Integer, Coche> entrada : listaDeCoches.entrySet()) {
+            Coche cocheActual = entrada.getValue();
+            if (cocheCandidato == null || cocheCandidato.getMotor().getCaballos() > cocheActual.getMotor().getCaballos()) {
+                cocheConMenosCaballos = entrada.getKey();
+                cocheCandidato = cocheActual;
+            }
+        }
+        return cocheConMenosCaballos;
+    }
+
+    public static int obtenerCochesQueTengaMasDeCienCaballos(HashMap<Integer, Coche> listaDeCoches){
+        int cuantosCochesTieneMasDeCienCaballos = 0;
+        
+
+        for (Coche coche : listaDeCoches.values()) {
+            if (coche.getMotor().getCaballos() > 100) {
+            cuantosCochesTieneMasDeCienCaballos++;
+            }
+        }
+      return cuantosCochesTieneMasDeCienCaballos;
+
+    }
+
+    public static int obtenerSumaTotalDeTodosLosCaballos(HashMap<Integer, Coche> listaDeCoches){
+        int sumaTotal = 0;
+
+        for (Coche coche : listaDeCoches.values()) {
+            sumaTotal += coche.getMotor().getCaballos();
+        }
+        return sumaTotal;
+    }
+
+    public static double obtenerLaMediaDeCaballosDeTodosLosCoches(HashMap<Integer, Coche> listaDeCoches){
+        double sumaTotal = 0;
+        for (Coche coche : listaDeCoches.values()) {
+            sumaTotal += coche.getMotor().getCaballos();
+        }
+
+        if(listaDeCoches.isEmpty()){
+            return 0;
+        }
+
+        return sumaTotal / listaDeCoches.size();
+    }
+
+    public static ArrayList<Coche> obtenerLosCochesConMasCaballosQuelaMedia(HashMap<Integer, Coche> listaDeCocches){
+        ArrayList<Coche> coche = new ArrayList<>();
+        double sumaTotal = 0;
+
+       if (listaDeCocches.isEmpty()) {
+            return coche;
+        }
+        for (Coche coche2 : listaDeCocches.values()) {
+            sumaTotal += coche2.getMotor().getCaballos();
+        }
+    
+
+        double media = sumaTotal / listaDeCocches.size();
+
+        for (Coche coche2 : listaDeCocches.values()) {
+           if (coche2.getMotor().getCaballos() > media) {
+            coche.add(coche2);
+           } 
+        }
+      
+        return coche;
+        
+    }
+
+    ///////////////////////////////////////////////////////////////////////
 
                        // ARRAYLIST
    public static int contarVoladores(ArrayList<Vehiculos> vehiculos) {
@@ -320,4 +414,6 @@ public static Vehiculos buscarNavegableMasLento(ArrayList<Vehiculos> vehiculos){
             return vehiculosVoladoresMasDeCuatrocientos;
     }
 
+
+   
 }

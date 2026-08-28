@@ -9,8 +9,12 @@ public class Main {
     
     public static void main(String[] args) {
         
+            Pedido pedido = new Pedido(20, "Pedro", EstadoPedido.PENDIENTE);
 
+            System.out.println(pedido.getEstado().getDescripcion());
 
+            
+            
 
         
 

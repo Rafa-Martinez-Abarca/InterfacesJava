@@ -8,10 +8,41 @@ public class Main {
 
     
     public static void main(String[] args) {
+        String saludar = "Hola mundo";
+        Integer numero = 15;
+        Motor motor = new Motor("Gasolina", 150);
+        Coche coche1 = new Coche("Seat", "Ibiza", motor);
+        Caja<Coche> caja = new Caja<>(coche1);
+        Caja<Integer>   caja2 = new Caja<>(numero);
+
+        Registro<Integer, Coche> registro = new Registro<>(numero, coche1);
+        Registro<String, Integer> registro2 = new Registro<>(saludar, numero);
+        
+        System.out.println(registro.getId());
+        System.out.println(registro.getDato());
+        
+        System.out.println(registro2.getDato());
+        System.out.println(registro2.getId());
+        
+
+        String texto = "preparado".toUpperCase();
+
+        try {
+            EstadoPedido estado = EstadoPedido.valueOf(texto);
+            System.out.println(estado.getDescripcion());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Estado no valido.");
+        }
         
             Pedido pedido = new Pedido(20, "Pedro", EstadoPedido.PENDIENTE);
+            
+            
 
-            System.out.println(pedido.getEstado().getDescripcion());
+
+            //pedido.setEstadoPedido(EstadoPedido.ENTREGADO);
+            for (EstadoPedido estado : EstadoPedido.values()) {
+                System.out.println(estado + " " + estado.getDescripcion());
+            }
 
             
             
@@ -21,9 +52,9 @@ public class Main {
     
 
     ///////////////////////////////////////////////////////////////////////
-        Motor motor = new Motor("Gasolina", 150);
+        
         Motor motor1 = new Motor("Diesel", 90);
-        Coche coche1 = new Coche("Seat", "Ibiza", motor);
+        
         Coche coche2 = new Coche("Seat", "Ibiza", motor);
         Coche coche3 = new Coche("BMV", "S3", motor);
         Coche coche4 = new Coche("Seat ", "Leon", motor);
@@ -107,12 +138,18 @@ public class Main {
             vehiculos.add(new Hidroavion("Cessna", "A1", 300, true, 1));
             vehiculos.add(new Hidroavion("Ces", "A1", 500, true, 2));
       
+    Coche coche23  = new Coche("Mercedes", "Benz", motor1);
+      mostrardato(coche23);
+
       
     }
 
+
+
     
-    
-    
+    public static <T> void mostrardato(T dato){
+        System.out.println(dato);
+    }
     
 /////////////////////////////////////////////////////////////////////////////////////
                 

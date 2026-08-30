@@ -40,7 +40,7 @@ public class Coche {
         if(!(obj instanceof Coche coche)){
             return false;
         }
-        //Comparamos marca y modelo con el la marca y el modelo del objeto que le estamos pasando.
+        //Comparamos marca y modelo con la marca y el modelo del objeto que le estamos pasando.
         if (this.getMarca().equals(coche.getMarca()) && this.getModelo().equals(coche.getModelo())) {
                 return true;
             }
